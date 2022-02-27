@@ -1,0 +1,181 @@
+  .grid {
+    height: 94%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(12, calc(100%/12));
+    grid-template-rows: repeat(6, calc(100%/8));
+    grid-gap: 0;
+    grid-auto-flow: dense;
+    padding: 0.1%;
+    position: absolute;
+    bottom: 6%;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    user-select: none;
+  }
+  .grid:selection, .key-button:selection {
+    background: transparent
+  }
+  .key {
+    margin: 1px;
+  }
+  .key-button {
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+    border: 0px;
+    text-transform: none !important;
+    overflow: hidden;
+    font-size: .5rem;
+    min-width: 10px !important;
+    background-color: white;
+    position: relative;
+    color: #263238;
+    font-weight: 500;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    background-position: center;
+    transition: background 0.1s, opacity 100ms;
+    border:2px solid rgb(228, 228, 228);
+    border-radius: 5px;
+    box-shadow: inset 0 0 12px rgb(228, 228, 228);
+  }
+  .loading .key-button {
+    opacity: 0;
+  }
+  .loading .key-button.BACK,
+  .loading .key-button.CLEAR,
+  .loading .key-button.QWERTY,
+  .loading .key-button.PLURAL,
+  .loading .key-button.EXPAND,
+  .loading .key-button.FILTER,
+  .loading .key-button.SETTINGS {
+    opacity: 1;
+  }
+  .key-button.BACK,
+  .key-button.CLEAR,
+  .key-button.QWERTY,
+  .key-button.PLURAL,
+  .key-button.EXPAND,
+  .key-button.FILTER,
+  .key-button.SETTINGS {
+    opacity:1;
+    pointer-events: all;
+  }
+  .hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .key-button:active {
+    outline: none;
+    background-color: rgb(228, 228, 228);
+    background-size: 100%;
+    transition: background 0.1s;
+  }
+  .key-button:focus {
+    outline: none;
+  }
+  .key-button.inactive {
+    pointer-events: none;
+  }
+  .key.expanded .key-button {
+    z-index: 2;
+  }
+  #overlay {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #263238;
+    opacity: .4;
+    z-index: 1;
+    pointer-events: all;
+  }
+  .bg {
+    border-radius: 50%;
+    width: calc(100vw/8);
+    height: calc(100vw/9);
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -33%);
+  }
+  .wordSpan {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    color: #94a0a7;
+  }
+  .icon {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: .8rem;
+  }
+  .material-icons {
+    font-size: 1rem;
+    margin-top: 4px;
+  }
+  .material-icons.check {
+    color: green;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+  .expandable {
+    background-color: #94a0a7;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    padding: 2px;
+  }
+  .options {
+    position: absolute;
+    background-color: white;
+    height: calc((100vw/12));
+    opacity: 0;
+    pointer-events: none;
+    transition: opactiy 500ms linear;
+  }
+  .key.expanded .expandable {
+    opacity: 0;
+  }
+  .key.expanded .options {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .options .key-button {
+    width: calc((100vw/12 - 2px));
+    height: calc((100vh/9));
+    display: inline-block;
+    margin: 1px;
+  }
+  @media only screen and (min-width: 825px) {
+    .key {
+      margin: 2px;
+    }
+    .key-button {
+      font-size: .75rem;
+    }
+    .bg {
+      width: calc(100vw/8);
+      height: calc(100vw/9);
+      transform: translate(-50%, -50%);
+    }
+    .icon {
+      font-size: 1.5rem;
+    }
+    .material-icons {
+      font-size: 1.9rem;
+    }
+    .options .key-button {
+      margin: 2px;
+      width: calc((100vw/12 - 4px));
+      height: calc((100vh/9 - 2px));
+    }
+  }

@@ -1,3 +1,9 @@
+# Speakoji
+A motor memory, text-to-speech AAC created with creat-react-app and typescript.
+
+This is designed to be installed to a device and run as a progressive web app.
+
+##
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
