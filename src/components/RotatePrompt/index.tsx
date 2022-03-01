@@ -1,8 +1,11 @@
-
+import './rotate.css'
 
 const RotatePrompt = () => {
-  console.log('rotate prompt');
-  return <></>;
+  return (
+    <div id="rotatePrompt">
+      <div className="rotatePrompt-center">ROTATE DEVICE<i className="rotatePrompt-icon material-icons">screen_rotation</i></div>
+    </div>
+  );
 }
 
 export default RotatePrompt;

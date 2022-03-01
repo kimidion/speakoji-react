@@ -6,5 +6,6 @@ export enum ACTIONS {
     PLURALIZE = 'PLURALIZE',
     EXPAND = 'EXPAND', // will show key variations when enabled (enabled by default)
     FILTER = 'FILTER',
-    SETTINGS = 'SETTINGS'
+    SETTINGS = 'SETTINGS',
+    PLACEHOLDER = 'PLACEHOLDER'
 };

@@ -10,18 +10,18 @@ export interface Word {
     bg?: string;
     expand?: string[];
     action?: string;
-    filtered?: boolean;
 }
 
 // bottom row only moves to new pages
 // static rightmost column for navigational elements
 export const clear = { y: 0, x: 11, word: "CLEAR", icon: "clear_all", emoji: "", action: ACTIONS.CLEAR, bg: COLORS.LIGHTGREY };
 export const back = { y: 1, x: 11, word: "BACK", icon: "settings_backup_restore", emoji: "", action: ACTIONS.BACK, bg: COLORS.LIGHTGREY };
-export const pluralize = { y: 2, x: 11, word: "PLURAL", icon: "", emoji: "+s", action: ACTIONS.PLURALIZE, bg: COLORS.LIGHTGREY };
+// export const pluralize = { y: 2, x: 11, word: "", icon: "placholder-key", emoji: "", action: null, bg: COLORS.LIGHTGREY };
 export const keyboard = { y: 3, x: 11, word: "QWERTY", icon: "keyboard", emoji: "", action: ACTIONS.KEYBOARD, bg: COLORS.LIGHTGREY };
-export const expand = { y: 4, x: 11, word: "", icon: "", emoji: "", action: null, bg: " " };
+// export const expand = { y: 4, x: 11, word: "", icon: "placeholder-key", emoji: "", action: null, bg: COLORS.LIGHTGREY };
 export const filter =  { y: 5, x: 11, word: "FILTER", icon: "filter_list", emoji: "", action: ACTIONS.FILTER, bg: COLORS.LIGHTGREY };
-export const settings = { y: 6, x: 11, word: "SETTINGS", icon: "menu", emoji: "", action: ACTIONS.SETTINGS, bg: COLORS.LIGHTGREY };
+// export const settings = { y: 6, x: 11, word: "SETTINGS", icon: "menu", emoji: "", action: ACTIONS.SETTINGS, bg: COLORS.LIGHTGREY };
+
 
 const row1 = [
     { y: 0, x: 0 },
@@ -77,7 +77,7 @@ const row4 = [
     { y: 3, x: 8 },
     { y: 3, x: 9 },
     { y: 3, x: 10 },
-    pluralize
+    { y: 3, x: 11, action: ACTIONS.PLACEHOLDER }
 ] as Word[];
 const row5 = [
     { y: 4, x: 0 },
@@ -91,7 +91,7 @@ const row5 = [
     { y: 4, x: 8 },
     { y: 4, x: 9 },
     { y: 4, x: 10 },
-    expand
+    { y: 4, x: 11, action: ACTIONS.PLACEHOLDER }
 ];
 const row6 = [
     { y: 5, x: 0 },
@@ -119,7 +119,7 @@ const row7 = [
     { y: 6, x: 8 },
     { y: 6, x: 9 },
     { y: 6, x: 10 },
-    settings
+    { y: 6, x: 10, action: ACTIONS.PLACEHOLDER }
 ] as Word[];
 
 export const keyGrid = [row1, row2, row3, row4, row5, row6, row7] as Word[][];
