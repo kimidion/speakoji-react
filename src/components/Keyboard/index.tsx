@@ -100,7 +100,7 @@ const KeyboardButton = ({ word, filterArr, choose, keyboardEnabled }: KeyboardBu
       return setFiltered(filterArr.indexOf(word.word.toUpperCase()) === -1);
     }
     return setFiltered(true);
-  }, [filterArr]);
+  }, [filterArr, word.word, word.action]);
   return (
     <div className={classNames('key', word.word, {'filtered': filtered })}>
       <button

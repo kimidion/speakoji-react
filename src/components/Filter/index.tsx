@@ -17,6 +17,10 @@ const Filter = ({ filterArr, setFilterArr, filterOpen, setFilterOpen }: FilterPr
     setLookup('');
     setFilterArr([]);
   }
+  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLookup(event.target.value);
+  };
+
   useEffect(() => {
     const keys = Object.keys(vocab) as PageKey[];
     const list = [] as string[];
@@ -29,9 +33,6 @@ const Filter = ({ filterArr, setFilterArr, filterOpen, setFilterOpen }: FilterPr
     });
     setWordList(list.sort());
   }, []);
-  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLookup(event.target.value);
-  };
   return (
     <div id="filter">
       <div className={classNames("filterOverlay", { open: filterOpen })}>
@@ -69,9 +70,6 @@ interface WordButtonProps {
 
 const WordButton = ({ filterArr, setFilterArr, word }: WordButtonProps) => {
   const [selected, setSelected] = useState<boolean>(false);
-  useEffect(() => {
-    setSelected(isSelected(word));
-  }, [filterArr]);
   const isSelected = (word: string) => {
     return filterArr.indexOf(word) !== -1;
   };
@@ -88,6 +86,10 @@ const WordButton = ({ filterArr, setFilterArr, word }: WordButtonProps) => {
       return filtered;
     })
   };
+
+  useEffect(() => {
+    setSelected(isSelected(word));
+  }, [filterArr, word, isSelected]);
 
   return (
     <button className={classNames("option", { "selected": selected })} onClick={() => filterWord(word)}>

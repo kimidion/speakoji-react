@@ -81,7 +81,7 @@ const Speak = ({ word, keyboardEnabled }) => {
     } else if (word && word === '#clear') {
       setPhrase('');
     }
-  }, [word])
+  }, [word, playSpeech])
 
   useEffect(() => {
     if (keyboardEnabled) {
