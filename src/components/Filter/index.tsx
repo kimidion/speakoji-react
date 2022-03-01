@@ -70,15 +70,13 @@ interface WordButtonProps {
 
 const WordButton = ({ filterArr, setFilterArr, word }: WordButtonProps) => {
   const [selected, setSelected] = useState<boolean>(false);
-  const isSelected = (word: string) => {
-    return filterArr.indexOf(word) !== -1;
-  };
+
   const filterWord = (word: string) => {
     setFilterArr((prev: string[]) => {
       const filtered = [...prev];
       // if it's already selected, remove from the filter list
       // else add it to the filter list
-      if (isSelected(word)) {
+      if (filterArr.indexOf(word) !== -1) {
         filtered.splice(filtered.indexOf(word), 1);
       } else {
         filtered.push(word);
@@ -88,8 +86,8 @@ const WordButton = ({ filterArr, setFilterArr, word }: WordButtonProps) => {
   };
 
   useEffect(() => {
-    setSelected(isSelected(word));
-  }, [filterArr, word, isSelected]);
+    setSelected(filterArr.indexOf(word) !== -1);
+  }, [filterArr, word]);
 
   return (
     <button className={classNames("option", { "selected": selected })} onClick={() => filterWord(word)}>

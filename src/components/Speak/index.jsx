@@ -81,7 +81,7 @@ const Speak = ({ word, keyboardEnabled }) => {
     } else if (word && word === '#clear') {
       setPhrase('');
     }
-  }, [word, playSpeech])
+  }, [word]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (keyboardEnabled) {
